@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="aurora_data.xsd"/>
+    <xs:include schemaLocation="aurora_layout.xsd"/>
+    <xs:include schemaLocation="presentation/grid.xsd"/>
+
+    <xs:group name="layout">
+        <xs:choice>
+            <xs:element ref="a:box"/>
+            <xs:element ref="a:hBox"/>
+            <xs:element ref="a:vBox"/>
+            <xs:element ref="a:form"/>
+            <xs:element ref="a:queryForm"/>
+            <xs:element ref="a:screenTitle"/>
+            <xs:element ref="a:screenTopToolbar"/>
+            <xs:element ref="a:freeMarker"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="dataDisplay">
+        <xs:choice>
+            <xs:element ref="a:grid"/>
+            <xs:element ref="a:treeGrid"/>
+            <xs:element ref="a:autoGrid"/>
+            <xs:element ref="a:floatList"/>
+        </xs:choice>
+    </xs:group>
+
+</xs:schema>

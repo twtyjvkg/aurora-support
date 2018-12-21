@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="aurora_presentation_base.xsd"/>
+
+    <xs:simpleType name="caseType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="upper"/>
+            <xs:enumeration value="lower"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="showType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="both"/>
+            <xs:enumeration value="pre"/>
+            <xs:enumeration value="next"/>
+            <xs:enumeration value="none"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="viewSizeType">
+        <xs:restriction base="xs:int">
+            <xs:maxInclusive value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="comboBox">
+        <xs:complexContent>
+            <xs:extension base="a:InputField">
+                <xs:attribute name="valueField"/>
+                <xs:attribute name="displayField"/>
+                <xs:attribute name="options"/>
+                <xs:attribute name="blankOption" default="false" type="xs:boolean"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="DatePicker">
+        <xs:complexContent>
+            <xs:extension base="a:InputField">
+                <xs:attribute name="dayRenderer"/>
+                <xs:attribute name="enableBesideDays" type="a:showType"/>
+                <xs:attribute name="enableMonthBtn" type="a:showType"/>
+                <xs:attribute name="viewSize" type="a:viewSizeType"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Lov">
+        <xs:complexContent>
+            <xs:extension base="a:InputField">
+                <xs:attribute name="lovService"/>
+                <xs:attribute name="lovWidth" type="xs:int"/>
+                <xs:attribute name="lovHeight" type="xs:int"/>
+                <xs:attribute name="lovGridHeight" type="xs:int"/>
+                <xs:attribute name="lovLabelWidth" type="xs:int"/>
+                <xs:attribute name="lovAutoQuery" default="true" type="xs:boolean"/>
+                <xs:attribute name="lovUrl" type="xs:anyURI"/>
+                <xs:attribute name="title" type="xs:string"/>
+                <xs:attribute name="fetchRemote" default="true" type="xs:boolean"/>
+                <xs:attribute name="fetchSingle" default="false" type="xs:boolean"/>
+                <xs:attribute name="autoCompleteRenderer"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="NumberField">
+        <xs:complexContent>
+            <xs:extension base="a:InputField">
+                <xs:attribute name="allowDecimals" type="xs:boolean"/>
+                <xs:attribute name="decimalPrecision" type="xs:int"/>
+                <xs:attribute name="allowNegative"/>
+                <xs:attribute name="allowFormat" type="xs:boolean"/>
+                <xs:attribute name="min" type="xs:int"/>
+                <xs:attribute name="max" type="xs:int"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:group name="Editors">
+        <xs:choice>
+            <xs:element name="textField">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:InputField">
+                            <xs:attribute name="typeCase" type="a:caseType"/>
+                            <xs:attribute name="restrict"/>
+                            <xs:attribute name="restrictInfo"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="currencyField" type="a:InputField"/>
+
+            <xs:element name="currencyLabel" type="a:Field"/>
+
+            <xs:element name="tagBox">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:Component">
+                            <xs:attribute name="displayfield"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="passWord" type="a:InputField"/>
+
+            <xs:element name="comboBox" type="a:comboBox"/>
+
+            <xs:element name="multiComboBox" type="a:comboBox"/>
+
+            <xs:element name="numberField" type="a:NumberField"/>
+
+            <xs:element name="spinner">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:InputField">
+                            <xs:attribute name="min" type="xs:int"/>
+                            <xs:attribute name="max" type="xs:int"/>
+                            <xs:attribute name="step" type="xs:int"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="label" type="a:Field"/>
+
+            <xs:element name="datePicker" type="a:DatePicker"/>
+
+            <xs:element name="dateTimePicker">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:DatePicker">
+                            <xs:attribute name="hour" default="0" type="xs:int"/>
+                            <xs:attribute name="minute" default="0" type="xs:int"/>
+                            <xs:attribute name="second" default="0" type="xs:int"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="calendar" type="a:InputField"/>
+
+            <xs:element name="radio">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:Field">
+                            <xs:choice>
+                                <xs:element name="items">
+                                    <xs:complexType>
+                                        <xs:choice>
+                                            <xs:element name="item">
+                                                <xs:complexType>
+                                                    <xs:attribute name="label"/>
+                                                    <xs:attribute name="value"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:choice>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                            <xs:attribute name="options"/>
+                            <xs:attribute name="valueField"/>
+                            <xs:attribute name="labelExpression"/>
+                            <xs:attribute name="labelField"/>
+                            <xs:attribute name="layout"/>
+                            <xs:attribute name="radioSeparator" default=":"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="checkBox">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:Field">
+                            <xs:attribute name="checkedValue"/>
+                            <xs:attribute name="uncheckedValue"/>
+                            <xs:attribute name="label"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="lov" type="a:Lov"/>
+
+            <xs:element name="multiLov" type="a:Lov"/>
+
+            <xs:element name="treeLov" type="a:Lov"/>
+
+            <xs:element name="textArea" type="a:InputField"/>
+
+            <xs:element name="percentField" type="a:NumberField"/>
+
+            <xs:element name="upload">
+                <xs:complexType>
+                    <xs:attribute name="buttonWidth" type="xs:int"/>
+                    <xs:attribute name="filetype"/>
+                    <xs:attribute name="pkvalue"/>
+                    <xs:attribute name="sourcetype"/>
+                    <xs:attribute name="filesize" type="xs:int"/>
+                    <xs:attribute name="totalfilesize" type="xs:int"/>
+                    <xs:attribute name="text"/>
+                    <xs:attribute name="type"/>
+                    <xs:attribute name="uploadurl" type="xs:anyURI"/>
+                    <xs:attribute name="deleteurl" type="xs:anyURI"/>
+                    <xs:attribute name="downloadurl" type="xs:anyURI"/>
+                    <xs:attribute name="showdelete" type="xs:boolean"/>
+                    <xs:attribute name="showupload" type="xs:boolean"/>
+                    <xs:attribute name="showlist" type="xs:boolean"/>
+                    <xs:attribute name="sortsql"/>
+                    <xs:attribute name="requiresession" type="xs:boolean"/>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="menuBar">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:Field">
+                            <xs:attribute name="displayField"/>
+                            <xs:attribute name="focus"/>
+                            <xs:attribute name="idField"/>
+                            <xs:attribute name="parentField"/>
+                            <xs:attribute name="targetName"/>
+                            <xs:attribute name="url"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="autoForm">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:Field">
+                            <xs:attribute name="column" type="xs:int"/>
+                            <xs:attribute name="model"/>
+                            <xs:attribute name="title"/>
+                            <xs:attribute name="labelWidth" type="xs:int"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="tledit">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:InputField">
+                            <xs:attribute name="descIdField"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="imagePicker">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="a:InputField">
+                            <xs:attribute name="path" type="xs:anyURI"/>
+                            <xs:attribute name="images" type="xs:string"/>
+                            <xs:attribute name="filter" type="xs:string"/>
+                            <xs:attribute name="imagesize" type="xs:string"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:group>
+
+</xs:schema>

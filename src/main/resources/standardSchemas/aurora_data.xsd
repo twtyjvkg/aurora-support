@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="presentation/aurora_presentation_base.xsd"/>
+
+    <xs:element name="dataSets">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="a:dataSet"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="dataSet">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="fields" minOccurs="0">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element ref="a:field" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="datas" minOccurs="0">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="record" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:choice>
+                        <xs:attribute name="dataSource" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="a:events"/>
+            </xs:choice>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+            <xs:attribute name="model" type="xs:string"/>
+            <xs:attribute name="baseUrl" type="xs:anyURI"/>
+            <xs:attribute name="loadData" default="false" type="xs:boolean"/>
+            <xs:attribute name="autoCreate" default="false" type="xs:boolean"/>
+            <xs:attribute name="autoQuery" default="false" type="xs:boolean"/>
+            <xs:attribute name="autoCount" default="false" type="xs:boolean"/>
+            <xs:attribute name="fetchAll" default="false" type="xs:boolean"/>
+            <xs:attribute name="canQuery" default="true" type="xs:boolean"/>
+            <xs:attribute name="canSubmit" default="true" type="xs:boolean"/>
+            <xs:attribute name="lookupCode" type="xs:string"/>
+            <xs:attribute name="autoPageSize" default="false" type="xs:boolean"/>
+            <xs:attribute name="maxPageSize" default="100" type="xs:integer"/>
+            <xs:attribute name="pageSize" default="10" type="xs:integer"/>
+            <xs:attribute name="queryUrl" type="xs:string"/>
+            <xs:attribute name="submitUrl" type="xs:string"/>
+            <xs:attribute name="selectable" default="false" type="xs:boolean"/>
+            <xs:attribute name="selectionModel" default="multiple" type="a:selectionModelValue"/>
+            <xs:attribute name="queryDataSet" type="xs:string"/>
+            <xs:attribute name="bindTarget" type="xs:string"/>
+            <xs:attribute name="bindName" type="xs:string"/>
+            <xs:attribute name="selectFunction"/>
+            <xs:attribute name="notification"/>
+            <xs:attribute name="modifiedCheck" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="field">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="a:mapping" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="required" default="false" type="xs:boolean"/>
+            <xs:attribute name="requiredMessage" type="xs:string"/>
+            <xs:attribute name="readOnly" default="false" type="xs:boolean"/>
+            <xs:attribute name="returnField" type="xs:string"/>
+            <xs:attribute name="options" type="xs:string"/>
+            <xs:attribute name="displayField" type="xs:string"/>
+            <xs:attribute name="valueField" type="xs:string"/>
+            <xs:attribute name="prompt" type="xs:string"/>
+            <xs:attribute name="title" type="xs:string"/>
+            <xs:attribute name="lovService" type="xs:string"/>
+            <xs:attribute name="lovWidth" type="xs:integer"/>
+            <xs:attribute name="lovLabelWidth" type="xs:integer"/>
+            <xs:attribute name="lovHeight" type="xs:integer"/>
+            <xs:attribute name="lovGridHeight" type="xs:integer"/>
+            <xs:attribute name="lovAutoQuery" default="true" type="xs:boolean"/>
+            <xs:attribute name="defaultValue"/>
+            <xs:attribute name="uncheckedValue"/>
+            <xs:attribute name="checkedValue"/>
+            <xs:attribute name="lovUrl" type="xs:anyURI"/>
+            <xs:attribute name="autoComplete" default="false" type="xs:boolean"/>
+            <xs:attribute name="autoCompleteField"/>
+            <xs:attribute name="autoCompleteSize" default="2" type="xs:integer"/>
+            <xs:attribute name="autoCompletePageSize" default="10" type="xs:integer"/>
+            <xs:attribute name="fuzzyFetch" default="false" type="xs:boolean"/>
+            <xs:attribute name="validator"/>
+            <xs:attribute name="datatype" type="xs:string"/>
+            <xs:attribute name="typeCase" type="xs:string"/>
+            <xs:attribute name="fetchRemote" default="true" type="xs:boolean"/>
+            <xs:attribute name="fetchRecord" default="true" type="xs:boolean"/>
+            <xs:attribute name="type" type="xs:string"/>
+            <xs:attribute name="tooltip"/>
+            <xs:attribute name="descIdField" type="xs:string"/>
+            <xs:attribute name="placeHolder"/>
+            <xs:attribute name="dto"/>
+            <xs:attribute name="dtoId"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="mapping">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="map">
+                    <xs:complexType>
+                        <xs:attribute name="from" type="xs:string" use="required"/>
+                        <xs:attribute name="to" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:simpleType name="selectionModelValue">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="single"/>
+            <xs:enumeration value="multiple"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

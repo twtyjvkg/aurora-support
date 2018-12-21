@@ -1,0 +1,144 @@
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="aurora_presentation_base.xsd"/>
+    <xs:include schemaLocation="editor.xsd"/>
+
+    <xs:complexType name="Grid">
+       <xs:complexContent>
+           <xs:extension base="a:Component">
+               <xs:sequence>
+                   <xs:element ref="a:columns"/>
+                   <xs:element ref="a:editors" minOccurs="0"/>
+               </xs:sequence>
+               <xs:attribute name="navBar" type="xs:boolean"/>
+               <xs:attribute name="navBarType" default="complex" type="a:navBarType"/>
+               <xs:attribute name="maxPageCount" default="10" type="xs:int"/>
+               <xs:attribute name="autoFocus" default="false" type="xs:boolean"/>
+               <xs:attribute name="autoAppend" default="true" type="xs:boolean"/>
+               <xs:attribute name="autoAdjust" default="true" type="xs:boolean"/>
+               <xs:attribute name="showRowNumber" type="xs:boolean"/>
+               <xs:attribute name="canWheel" type="xs:boolean"/>
+               <xs:attribute name="canPaste" default="false"/>
+               <xs:attribute name="rowRenderer" type="xs:string"/>
+               <xs:attribute name="submask" type="xs:boolean"/>
+               <xs:attribute name="eidtorBorder" default="true" type="xs:boolean"/>
+           </xs:extension>
+       </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="grid" type="a:Grid"/>
+
+    <xs:element name="columns">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="a:column" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="editors">
+        <xs:complexType>
+            <xs:choice>
+                <xs:group ref="a:Editors" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="column">
+        <xs:complexType>
+            <xs:attribute name="id"/>
+            <xs:attribute name="name" use="required"/>
+            <xs:attribute name="prompt" type="xs:string"/>
+            <xs:attribute name="hidden" default="false" type="xs:boolean"/>
+            <xs:attribute name="width" type="xs:int"/>
+            <xs:attribute name="sortable" default="false" type="xs:boolean"/>
+            <xs:attribute name="lock" default="false" type="xs:boolean"/>
+            <xs:attribute name="align" type="a:alignType"/>
+            <xs:attribute name="resizable" default="true" type="xs:boolean"/>
+            <xs:attribute name="renderer" type="xs:string"/>
+            <xs:attribute name="editor"/>
+            <xs:attribute name="editorFunction"/>
+            <xs:attribute name="footerRenderer"/>
+            <xs:attribute name="percentWidth" type="xs:int"/>
+            <xs:attribute name="forExport" default="true" type="xs:boolean"/>
+            <xs:attribute name="autoAdjust" default="true" type="xs:boolean"/>
+            <xs:attribute name="maxAdjustWidth" default="300" type="xs:int"/>
+            <xs:attribute name="exportDataFormat"/>
+            <xs:attribute name="exportDataType"/>
+            <xs:attribute name="exportField"/>
+            <xs:attribute name="showTitle" default="false" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="treeGrid">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Grid">
+                    <xs:attribute name="expandField" type="xs:string"/>
+                    <xs:attribute name="idField" type="xs:string"/>
+                    <xs:attribute name="parentField" type="xs:string"/>
+                    <xs:attribute name="showCheckBox" type="xs:boolean"/>
+                    <xs:attribute name="sequenceField" type="xs:string"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="autoGrid">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Grid">
+                    <xs:attribute name="autoFocus" default="false" type="xs:boolean"/>
+                    <xs:attribute name="model" type="xs:string"/>
+                    <xs:attribute name="enablePageSize" type="xs:int"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="floatList">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Grid">
+                    <xs:all>
+                        <xs:element name="exportcolumns" minOccurs="0">
+                            <xs:complexType>
+                                <xs:choice>
+                                    <xs:element ref="a:column"/>
+                                </xs:choice>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:all>
+                    <xs:attribute name="clickable" type="xs:boolean"/>
+                    <xs:attribute name="closeable" type="xs:boolean"/>
+                    <xs:attribute name="loadMore" default="false" type="xs:boolean"/>
+                    <xs:attribute name="columnnumber" default="1" type="xs:int"/>
+                    <xs:attribute name="rowStyle" type="xs:string"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:simpleType name="navBarType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="complex"/>
+            <xs:enumeration value="simple"/>
+            <xs:enumeration value="tiny"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="alignType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="right"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="toolBar"/>
+
+</xs:schema>

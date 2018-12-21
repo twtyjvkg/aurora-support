@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="aurora_presentation_base.xsd"/>
+
+    <xs:complexType name="Button">
+        <xs:complexContent>
+            <xs:extension base="a:Component">
+                <xs:attribute name="text" type="xs:string"/>
+                <xs:attribute name="click" type="xs:string"/>
+                <xs:attribute name="icon" type="xs:string"/>
+                <xs:attribute name="iconAlign" type="xs:string"/>
+                <xs:attribute name="title" type="xs:string"/>
+                <xs:attribute name="disabled" default="true" type="xs:boolean"/>
+                <xs:attribute name="type" type="a:buttonTypeValue"/>
+                <xs:attribute name="hidden" type="xs:boolean"/>
+                <xs:attribute name="btnClass" type="xs:string"/>
+                <xs:attribute name="btnStyle" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="buttonTypeValue">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="add"/>
+            <xs:enumeration value="save"/>
+            <xs:enumeration value="delete"/>
+            <xs:enumeration value="clear"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="button" type="a:Button"/>
+
+    <xs:element name="buttonGroup">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="groupButtons">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element ref="a:button" maxOccurs="unbounded"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+            <xs:attribute name="text" type="xs:string"/>
+            <xs:attribute name="width" type="xs:int"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="toolbarButton" type="a:Button"/>
+
+    <xs:element name="gridButton">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Button">
+                    <xs:attribute name="bind" type="xs:string"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

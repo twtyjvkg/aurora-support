@@ -1,0 +1,62 @@
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:complexType name="Component" abstract="true">
+        <xs:all>
+            <xs:element ref="a:events" minOccurs="0"/>
+        </xs:all>
+        <xs:attribute name="id"/>
+        <xs:attribute name="prompt"/>
+        <xs:attribute name="tabIndex"/>
+        <xs:attribute name="hidden" type="xs:boolean"/>
+        <xs:attribute name="width" type="xs:int"/>
+        <xs:attribute name="height" type="xs:int"/>
+        <xs:attribute name="marginWidth" type="xs:int"/>
+        <xs:attribute name="marginHeight" type="xs:int"/>
+        <xs:attribute name="clientResize" type="xs:boolean"/>
+        <xs:attribute name="style"/>
+        <xs:attribute name="name"/>
+        <xs:attribute name="bindTarget" type="xs:string"/>
+        <xs:attribute name="className"/>
+    </xs:complexType>
+
+    <xs:complexType name="Field">
+        <xs:complexContent>
+            <xs:extension base="a:Component">
+                <xs:attribute name="readOnly" default="false" type="xs:boolean"/>
+                <xs:attribute name="renderer"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="InputField">
+        <xs:complexContent>
+            <xs:extension base="a:Field">
+                <xs:attribute name="emptyText"/>
+                <xs:attribute name="autoSelect" default="true" type="xs:boolean"/>
+                <xs:attribute name="editable" default="true" type="xs:boolean"/>
+                <xs:attribute name="transformCharacter" default="true" type="xs:boolean"/>
+                <xs:attribute name="maxLength" type="xs:int"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="BaseViewComponent"/>
+
+    <xs:element name="events">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="event">
+                    <xs:complexType>
+                        <xs:attribute name="name" type="xs:string"/>
+                        <xs:attribute name="handler" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

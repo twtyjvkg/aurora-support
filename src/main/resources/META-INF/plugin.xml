@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.hand.ide.plugin.aurora-support</id>
+    <name>Aurora Support</name>
+    <vendor email="xuzhao@feline.net" url="https://www.xuzhao.xin">xuzhao</vendor>
+    <description><![CDATA[
+    Supports the development of Aurora applications with IntelliJ IDEA.
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+
+        <!-- 注册Aurora文件工厂 -->
+        <fileTypeFactory implementation="com.hand.ide.plugin.aurora.fileTypes.AuroraFileTypeFactory" />
+
+        <!-- 注册Aurora语法分析器 -->
+        <lang.parserDefinition language="Aurora" implementationClass="com.hand.ide.plugin.aurora.lang.AuroraParserDefinition" />
+
+        <!-- 注册screen文件的xsd -->
+        <standardResource url="http://www.aurora-framework.org/application" path="/standardSchemas/aurora_screen.xsd"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="NewScreenFile" class="com.hand.ide.plugin.aurora.actions.CreateScreenFileAction">
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
+        </action>
+    </actions>
+    <depends>com.intellij.modules.xml</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
+</idea-plugin>

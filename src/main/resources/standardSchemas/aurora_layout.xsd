@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="aurora_types.xsd"/>
+    <xs:include schemaLocation="presentation/aurora_presentation_base.xsd"/>
+    <xs:include schemaLocation="presentation/button.xsd"/>
+    <xs:include schemaLocation="presentation/editor.xsd"/>
+
+    <xs:complexType name="Box">
+       <xs:complexContent>
+           <xs:extension base="a:Component">
+               <xs:choice>
+                   <xs:any namespace="##other"/>
+                   <xs:group ref="a:Editors" minOccurs="0"/>
+                   <xs:group ref="a:layout" minOccurs="0"/>
+               </xs:choice>
+               <xs:attribute name="column" type="xs:int"/>
+               <xs:attribute name="cellPadding" type="xs:int"/>
+               <xs:attribute name="cellSpacing" type="xs:int"/>
+               <xs:attribute name="padding" type="xs:int"/>
+               <xs:attribute name="prompt" type="xs:string"/>
+               <xs:attribute name="labelWidth" type="xs:int"/>
+               <xs:attribute name="labelSeparator" default=":" type="xs:string"/>
+               <xs:attribute name="labelPosition" default="left" type="xs:string"/>
+               <xs:attribute name="labelAlign" default="left" type="xs:string"/>
+               <xs:attribute name="showBorder" type="xs:boolean"/>
+               <xs:attribute name="wrapperAdjust" default="true" type="xs:boolean"/>
+           </xs:extension>
+       </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="HBox">
+        <xs:complexContent>
+            <xs:extension base="a:Component">
+                <xs:choice>
+                    <xs:any namespace="##other"/>
+                    <xs:group ref="a:Editors" minOccurs="0"/>
+                    <xs:group ref="a:layout" minOccurs="0"/>
+                </xs:choice>
+                <xs:attribute name="cellPadding" type="xs:int"/>
+                <xs:attribute name="cellSpacing" type="xs:int"/>
+                <xs:attribute name="padding" type="xs:int"/>
+                <xs:attribute name="prompt" type="xs:string"/>
+                <xs:attribute name="labelWidth" type="xs:int"/>
+                <xs:attribute name="labelSeparator" default=":" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="box" type="a:Box"/>
+
+    <xs:element name="vBox">
+        <xs:complexType>
+           <xs:complexContent>
+               <xs:extension base="a:Component">
+                   <xs:choice>
+                       <xs:any namespace="##other"/>
+                       <xs:group ref="a:layout" minOccurs="0"/>
+                       <xs:group ref="a:Editors" minOccurs="0"/>
+                   </xs:choice>
+                   <xs:attribute name="cellPadding" type="xs:int"/>
+                   <xs:attribute name="cellSpacing" type="xs:int"/>
+                   <xs:attribute name="padding" type="xs:int"/>
+                   <xs:attribute name="prompt" type="xs:string"/>
+                   <xs:attribute name="labelWidth" type="xs:int"/>
+                   <xs:attribute name="labelSeparator" default=":" type="xs:string"/>
+               </xs:extension>
+           </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="hBox" type="a:HBox"/>
+
+    <xs:element name="form">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Box">
+                    <xs:choice>
+                        <xs:element ref="a:fieldSet"/>
+                        <xs:group ref="a:dataDisplay"/>
+                    </xs:choice>
+                    <xs:attribute name="title" type="xs:string"/>
+                    <xs:attribute name="titlewidth" default="100" type="xs:int"/>
+                    <xs:attribute name="showmargin" default="false" type="xs:boolean"/>
+                    <xs:attribute name="shrinkable" default="true" type="xs:boolean"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="queryForm">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Component">
+                    <xs:sequence>
+                        <xs:element ref="a:formToolBar"/>
+                        <xs:element ref="a:formBody"/>
+                    </xs:sequence>
+                    <xs:attribute name="title" type="xs:string"/>
+                    <xs:attribute name="expand" default="false" type="xs:boolean"/>
+                    <xs:attribute name="resultTarget" type="xs:string"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="formToolBar">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:HBox">
+                    <xs:choice>
+                        <xs:element ref="a:button"/>
+                        <xs:element ref="a:gridButton"/>
+                        <xs:element ref="a:toolbarButton"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="formBody" type="a:Box"/>
+
+    <xs:element name="formButton" type="a:Button"/>
+
+    <xs:element name="fieldSet">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Box">
+                    <xs:attribute name="title" type="xs:string"/>
+                    <xs:attribute name="showmargin" default="false" type="xs:boolean"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="screenTopToolbar">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="a:button"/>
+                <xs:element ref="a:buttonGroup"/>
+                <xs:element ref="a:toolbarButton"/>
+                <xs:element ref="a:gridButton"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="screenTitle"/>
+
+    <xs:element name="freeMarker"/>
+
+    <xs:element name="screenBody">
+        <xs:complexType>
+            <xs:choice>
+                <xs:any namespace="##other"/>
+                <xs:group ref="a:layout"/>
+                <xs:group ref="a:dataDisplay"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

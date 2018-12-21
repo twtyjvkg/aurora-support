@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        elementFormDefault="qualified">
+
+    <xs:include schemaLocation="aurora_types.xsd"/>
+
+    <xs:element name="screen">
+        <xs:annotation>
+            <xs:documentation>
+                UI界面的基础单元
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="a:init-procedure"/>
+                <xs:element ref="a:view"/>
+            </xs:sequence>
+            <xs:attribute name="trace" default="false" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="view">
+        <xs:complexType>
+            <xs:choice>
+                <xs:any namespace="##other"/>
+                <xs:element name="link" minOccurs="0">
+                    <xs:complexType>
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                        <xs:attribute name="url" type="xs:string"/>
+                        <xs:attribute name="model" type="xs:string"/>
+                        <xs:attribute name="modelaction" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element ref="a:dataSets"/>
+                <xs:group ref="a:layout"/>
+                <xs:group ref="a:dataDisplay"/>
+                <xs:element ref="a:screenBody"/>
+            </xs:choice>
+            <xs:attribute name="template" default="default" type="xs:string"/>
+            <xs:attribute name="package" type="xs:string"/>
+            <xs:attribute name="chartTheme" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="init-procedure">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="model-query">
+                    <xs:complexType>
+                        <xs:attribute name="fetchAll" type="xs:boolean"/>
+                        <xs:attribute name="model" type="xs:string"/>
+                        <xs:attribute name="rootPath" type="xs:string"/>
+                        <xs:attribute name="defaultWhereclause" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
