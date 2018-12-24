@@ -4,6 +4,10 @@
     <vendor email="xuzhao@feline.net" url="https://www.xuzhao.xin">xuzhao</vendor>
     <description><![CDATA[
     Supports the development of Aurora applications with IntelliJ IDEA.
+    <br/>
+    <br/>
+    <a href="https://twtyjvkg.github.io/aurora-support/#donation"><strong>donation<strong></a>
+
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
