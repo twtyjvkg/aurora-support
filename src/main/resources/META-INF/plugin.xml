@@ -4,6 +4,11 @@
     <vendor email="xuzhao@feline.net" url="https://www.xuzhao.xin">xuzhao</vendor>
     <description><![CDATA[
     Supports the development of Aurora applications with IntelliJ IDEA.
+
+    donation<br/>
+
+    <image src="https://twtyjvkg.github.io/aurora-support/images/alipay.jpg" alt="AliPay">
+    <image src="https://twtyjvkg.github.io/aurora-support/images/wechat.png" alt="WeChat">
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
