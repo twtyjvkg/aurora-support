@@ -1,6 +1,8 @@
 aurora-support
 ==============
 
+[![idea--plugin](https://img.shields.io/pypi/v/pip.svg)](https://img.shields.io/badge/idea--plugin-v1.0.0-orange.svg)
+
 aurora support for idea
 
 screenshot
