@@ -17,5 +17,5 @@ screenshot
 donation
 --------
 
-![AliPay](https://twtyjvkg.github.io/aurora-support/images/alipay.jpg) ![WeChat](https://twtyjvkg.github.io/aurora-support/images/wechat.png)
-
+<image src="https://twtyjvkg.github.io/aurora-support/images/alipay.jpg" alt="AliPay" height="80%"/>
+<image src="https://twtyjvkg.github.io/aurora-support/images/wechat.png" alt="WeChat" height="80%"/>
