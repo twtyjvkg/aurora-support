@@ -35,7 +35,7 @@ patchPluginXml {
     changeNotes """
       <ul>
       1.0
-      <li>screen file editor</>
+      <li>screen file editor with IntelliSense</>
       </ul>
       """
     sinceBuild 'IU-171.4073.28'
