@@ -5,6 +5,9 @@ aurora-support
 
 aurora support for idea
 
+- **screen file editor with IntelliSense**
+- **automatic conversion of file name from camel to underline**
+
 installation
 ------------
 
