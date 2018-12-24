@@ -13,4 +13,9 @@ screenshot
 - screen editor with SCREEN IntelliSense
 
     ![screen editor with SCREEN IntelliSense](https://twtyjvkg.github.io/aurora-support/screenshot/2.gif)
+    
+donation
+--------
+
+![AliPay](https://twtyjvkg.github.io/aurora-support/images/alipay.jpg) ![WeChat](https://twtyjvkg.github.io/aurora-support/images/wechat.png)
 
