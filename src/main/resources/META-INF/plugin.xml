@@ -25,6 +25,9 @@
         <!-- 注册Aurora语法分析器 -->
         <lang.parserDefinition language="Aurora" implementationClass="com.hand.ide.plugin.aurora.lang.AuroraParserDefinition" />
 
+        <!-- 注册文件模板组 -->
+        <fileTemplateGroup implementation="com.hand.ide.plugin.aurora.fileTemplates.AuroraFileTemplateProvider" order="first"/>
+
         <!-- 注册screen文件的xsd -->
         <standardResource url="http://www.aurora-framework.org/application" path="/standardSchemas/aurora_screen.xsd"/>
     </extensions>
