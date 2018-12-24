@@ -2,11 +2,17 @@ package com.hand.ide.plugin.aurora.actions;
 
 import com.hand.ide.plugin.aurora.fileTemplates.AuroraFileTemplateProvider;
 import com.hand.ide.plugin.aurora.icons.AuroraIcons;
+import com.hand.ide.plugin.aurora.utils.CommonUtil;
 import com.intellij.ide.actions.CreateFileFromTemplateAction;
 import com.intellij.ide.actions.CreateFileFromTemplateDialog;
+import com.intellij.ide.fileTemplates.FileTemplate;
+import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiFile;
+import com.intellij.util.IncorrectOperationException;
 
 import javax.swing.*;
 
@@ -16,7 +22,7 @@ import javax.swing.*;
  * @description
  * @time 2018/12/21 15:55
  */
-public class CreateScreenFileAction extends CreateFileFromTemplateAction implements DumbAware {
+public class CreateScreenFileAction extends CreateFileFromTemplateAction implements DumbAware  {
 
     public CreateScreenFileAction() {
         super("Screen File", "Create New Screen File", AuroraIcons.SCREEN);
@@ -31,5 +37,12 @@ public class CreateScreenFileAction extends CreateFileFromTemplateAction impleme
     @Override
     protected String getActionName(PsiDirectory directory, String newName, String templateName) {
         return "Screen File";
+    }
+
+    @Override
+    protected PsiFile createFile(String name, String templateName, PsiDirectory dir) {
+
+        final FileTemplate template = FileTemplateManager.getInstance(dir.getProject()).getInternalTemplate(templateName);
+        return createFileFromTemplate(CommonUtil.camel2Underline(name), template, dir);
     }
 }
