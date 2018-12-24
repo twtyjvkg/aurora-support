@@ -5,6 +5,13 @@ aurora-support
 
 aurora support for idea
 
+installation
+------------
+
+- install from plugin repositories
+
+    ![create new screen file](https://twtyjvkg.github.io/aurora-support/screenshot/installation.gif)
+
 screenshot
 ----------
 
