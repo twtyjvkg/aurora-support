@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Description:
+ * Version: 1.0
+ * Author:
+ * Copyright Hand China Co.,Ltd.
+-->
+
+<bm:model xmlns:bm="http://www.aurora-framework.org/schema/bm" needAccessControl="false">
+    #[[$END$]]#
+</bm:model>

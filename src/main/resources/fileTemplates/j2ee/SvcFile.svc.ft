@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Description:
+ * Version: 1.0
+ * Author:
+ * Copyright Hand China Co.,Ltd.
+-->
+
+<a:service xmlns:a="http://www.aurora-framework.org/application" trace="true">
+    #[[$END$]]#
+</a:service>
