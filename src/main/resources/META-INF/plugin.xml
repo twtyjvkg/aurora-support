@@ -29,7 +29,9 @@
         <fileTemplateGroup implementation="com.hand.ide.plugin.aurora.fileTemplates.AuroraFileTemplateProvider" order="first"/>
 
         <!-- 注册screen文件的xsd -->
-        <standardResource url="http://www.aurora-framework.org/application" path="/standardSchemas/aurora_screen.xsd"/>
+        <standardResource url="http://www.aurora-framework.org/application" path="/standardSchemas/screen/aurora_screen.xsd"/>
+        <!-- 注册bm文件的xsd -->
+        <standardResource url="http://www.aurora-framework.org/schema/bm" path="/standardSchemas/bm/aurora_bm.xsd"/>
     </extensions>
 
     <actions>

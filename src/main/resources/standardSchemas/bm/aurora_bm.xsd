@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/schema/bm"
+        xmlns:bm="http://www.aurora-framework.org/schema/bm"
+        elementFormDefault="qualified">
+    <xs:element name="model">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="operations">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element ref="bm:operation"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="fields">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="field">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="data-filters">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="data-filter">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string"/>
+                                    <xs:attribute name="expression" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="operation">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="bm:query-sql"/>
+                <xs:element ref="bm:update-sql"/>
+            </xs:choice>
+            <xs:attribute name="name" type="bm:bmOperationNameType"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="query-sql"/>
+    <xs:element name="update-sql"/>
+
+    
+    <xs:simpleType name="bmOperationNameType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="insert"/>
+            <xs:enumeration value="delete"/>
+            <xs:enumeration value="update"/>
+            <xs:enumeration value="query"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
