@@ -1,9 +1,12 @@
 aurora-support
 ==============
 
-[![idea--plugin](https://img.shields.io/badge/idea--plugin-v1.0.0-orange.svg)](https://plugins.jetbrains.com/plugin/11468-aurora-support)
+[![idea--plugin](https://img.shields.io/badge/idea--plugin-v1.0-orange.svg)](https://plugins.jetbrains.com/plugin/11468-aurora-support)
 
-aurora support for idea
+Supports the development of Aurora applications with IntelliJ IDEA.
+
+- **screen file editor with IntelliSense**
+- **automatic conversion of file name from camel to underline**
 
 installation
 ------------

@@ -34,7 +34,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="NewScreenFile" class="com.hand.ide.plugin.aurora.actions.CreateScreenFileAction">
+        <action id="NewAuroraFile" class="com.hand.ide.plugin.aurora.actions.CreateAuroraFileAction">
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
         </action>
     </actions>

@@ -9,40 +9,40 @@ import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiFile;
-import com.intellij.util.IncorrectOperationException;
-
-import javax.swing.*;
 
 /**
  * @author xuzhao
  * @email mailto:xuzhao@feline.net
- * @description
+ * @description 创建Aurora文件
  * @time 2018/12/21 15:55
  */
-public class CreateScreenFileAction extends CreateFileFromTemplateAction implements DumbAware  {
+public class CreateAuroraFileAction extends CreateFileFromTemplateAction implements DumbAware  {
 
-    public CreateScreenFileAction() {
-        super("Screen File", "Create New Screen File", AuroraIcons.SCREEN);
+    public CreateAuroraFileAction() {
+        super("Aurora File", "Create New Aurora File", AuroraIcons.AURORA);
     }
 
     @Override
     protected void buildDialog(Project project, PsiDirectory directory, CreateFileFromTemplateDialog.Builder builder) {
-        builder.setTitle("New Screen File")
-                .addKind("Screen File", AuroraIcons.SCREEN, AuroraFileTemplateProvider.SCREEN_FILE_TEMPLATE);
+        builder.setTitle("New Aurora File")
+                .addKind("Screen File", AuroraIcons.SCREEN, AuroraFileTemplateProvider.SCREEN_FILE_TEMPLATE)
+                .addKind("SVC File", AuroraIcons.SVC, AuroraFileTemplateProvider.SVC_FILE_TEMPLATE)
+                .addKind("BM File", AuroraIcons.BM, AuroraFileTemplateProvider.BM_FILE_TEMPLATE);
     }
 
     @Override
     protected String getActionName(PsiDirectory directory, String newName, String templateName) {
-        return "Screen File";
+        return "Aurora File";
     }
 
     @Override
     protected PsiFile createFile(String name, String templateName, PsiDirectory dir) {
 
         final FileTemplate template = FileTemplateManager.getInstance(dir.getProject()).getInternalTemplate(templateName);
-        return createFileFromTemplate(CommonUtil.camel2Underline(name), template, dir);
+        return createFileFromTemplate(templateName.equalsIgnoreCase(
+                // screen文件使用下划线命名法
+                "ScreenFile") ? CommonUtil.camel2Underline(name) : name, template, dir);
     }
 }

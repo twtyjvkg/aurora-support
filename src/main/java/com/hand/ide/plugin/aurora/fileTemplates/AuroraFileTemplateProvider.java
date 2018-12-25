@@ -14,11 +14,15 @@ import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptorFactory;
 public class AuroraFileTemplateProvider implements FileTemplateGroupDescriptorFactory {
 
     public static final String SCREEN_FILE_TEMPLATE = "ScreenFile";
+    public static final String SVC_FILE_TEMPLATE = "SvcFile";
+    public static final String BM_FILE_TEMPLATE = "BmFile";
 
     @Override
     public FileTemplateGroupDescriptor getFileTemplatesDescriptor() {
         FileTemplateGroupDescriptor group = new FileTemplateGroupDescriptor("Aurora", AuroraIcons.AURORA);
         group.addTemplate(new FileTemplateDescriptor(SCREEN_FILE_TEMPLATE, AuroraIcons.SCREEN));
+        group.addTemplate(new FileTemplateDescriptor(SVC_FILE_TEMPLATE, AuroraIcons.SVC));
+        group.addTemplate(new FileTemplateDescriptor(BM_FILE_TEMPLATE, AuroraIcons.BM));
         return group;
     }
 }
