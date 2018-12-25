@@ -36,8 +36,11 @@ patchPluginXml {
     changeNotes """
       <ul>
       1.0.0
-      <li>screen file editor with IntelliSense</>
+      <li>screen file editor with IntelliSense</li>
       <li>automatic conversion of file name from camel to underline</li>
+      1.0.1
+      <li>add the editor support of bm & svc</li>
+      <li>a new UI</li>
       </ul>
       """
     sinceBuild 'IU-171.4073.28'

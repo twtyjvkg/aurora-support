@@ -15,7 +15,7 @@ import com.intellij.psi.PsiFile;
 /**
  * @author xuzhao
  * @email mailto:xuzhao@feline.net
- * @description
+ * @description 创建Aurora文件
  * @time 2018/12/21 15:55
  */
 public class CreateAuroraFileAction extends CreateFileFromTemplateAction implements DumbAware  {
@@ -42,6 +42,7 @@ public class CreateAuroraFileAction extends CreateFileFromTemplateAction impleme
 
         final FileTemplate template = FileTemplateManager.getInstance(dir.getProject()).getInternalTemplate(templateName);
         return createFileFromTemplate(templateName.equalsIgnoreCase(
+                // screen文件使用下划线命名法
                 "ScreenFile") ? CommonUtil.camel2Underline(name) : name, template, dir);
     }
 }
