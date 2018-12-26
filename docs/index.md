@@ -5,8 +5,8 @@ aurora-support
 
 Supports the development of Aurora applications with IntelliJ IDEA.
 
-- **screen file editor with IntelliSense**
-- **automatic conversion of file name from camel to underline**
+- **aurora file editor with IntelliSense**
+- **automatic conversion of  screen file name from camel to underline**
 
 installation
 ------------
