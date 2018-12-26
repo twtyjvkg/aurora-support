@@ -41,6 +41,9 @@ patchPluginXml {
       1.0.1
       <li>add the editor support of bm & svc</li>
       <li>a new UI</li>
+      1.0.2
+      <li>add the schema of bm & svc</li>
+      <li>define the Aurora SyntaxHighlighterFactory</li>
       </ul>
       """
     sinceBuild 'IU-171.4073.28'
