@@ -25,15 +25,17 @@
         <!-- 注册Aurora语法分析器 -->
         <lang.parserDefinition language="Aurora" implementationClass="com.hand.ide.plugin.aurora.lang.AuroraParserDefinition" />
 
+        <!-- 注册Aurora语法高亮工厂 -->
+        <lang.syntaxHighlighterFactory language="Aurora" implementationClass="com.hand.ide.plugin.aurora.lang.AuroraSyntaxHighlighterFactory" />
+
         <!-- 注册文件模板组 -->
         <fileTemplateGroup implementation="com.hand.ide.plugin.aurora.fileTemplates.AuroraFileTemplateProvider" order="first"/>
 
-        <!-- 注册screen文件的xsd -->
+        <!-- 注册Aurora的xsd -->
         <standardResource url="http://www.aurora-framework.org/application" path="/standardSchemas/screen/aurora_screen.xsd"/>
-        <!-- 注册bm文件的xsd -->
         <standardResource url="http://www.aurora-framework.org/schema/bm" path="/standardSchemas/bm/aurora_bm.xsd"/>
-        <!-- 注册script标签的xsd -->
         <standardResource url="aurora.plugin.script" path="/standardSchemas/script/aurora_script.xsd"/>
+
     </extensions>
 
     <actions>
