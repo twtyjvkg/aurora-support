@@ -6,6 +6,7 @@
         elementFormDefault="qualified">
 
     <xs:include schemaLocation="aurora_types.xsd"/>
+    <xs:include schemaLocation="../svc/aurora_svc.xsd"/>
 
     <xs:element name="screen">
         <xs:annotation>

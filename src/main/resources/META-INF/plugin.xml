@@ -32,6 +32,8 @@
         <standardResource url="http://www.aurora-framework.org/application" path="/standardSchemas/screen/aurora_screen.xsd"/>
         <!-- 注册bm文件的xsd -->
         <standardResource url="http://www.aurora-framework.org/schema/bm" path="/standardSchemas/bm/aurora_bm.xsd"/>
+        <!-- 注册script标签的xsd -->
+        <standardResource url="aurora.plugin.script" path="/standardSchemas/script/aurora_script.xsd"/>
     </extensions>
 
     <actions>

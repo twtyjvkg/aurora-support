@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.aurora-framework.org/application"
+        xmlns:a="http://www.aurora-framework.org/application"
+        xmlns:s="aurora.plugin.script"
+        elementFormDefault="qualified">
+
+    <xs:element name="service">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="a:init-procedure"/>
+            </xs:sequence>
+            <xs:attribute name="final-page" type="xs:boolean"/>
+            <xs:attribute name="trace" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="init-procedure">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="session-clear"/>
+                <xs:element ref="s:server-script"/>
+            </xs:choice>
+            <xs:attribute name="outputPath" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
