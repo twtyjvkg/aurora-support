@@ -6,6 +6,7 @@
 
     <xs:include schemaLocation="aurora_presentation_base.xsd"/>
     <xs:include schemaLocation="editor.xsd"/>
+    <xs:include schemaLocation="button.xsd"/>
 
     <xs:complexType name="Grid">
        <xs:complexContent>
@@ -30,7 +31,17 @@
        </xs:complexContent>
     </xs:complexType>
 
-    <xs:element name="grid" type="a:Grid"/>
+    <xs:element name="grid">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="a:Grid">
+                    <xs:choice>
+                        <xs:element ref="a:toolBar"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
 
     <xs:element name="columns">
         <xs:complexType>
@@ -139,6 +150,12 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:element name="toolBar"/>
+    <xs:element name="toolBar">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="a:button" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
 
 </xs:schema>
