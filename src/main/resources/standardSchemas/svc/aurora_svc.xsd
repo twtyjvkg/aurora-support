@@ -6,6 +6,8 @@
         xmlns:s="aurora.plugin.script"
         elementFormDefault="qualified">
 
+    <xs:include schemaLocation="http://www.aurora-framework.org/application"/>
+
     <xs:element name="service">
         <xs:complexType>
             <xs:sequence>
@@ -13,16 +15,6 @@
             </xs:sequence>
             <xs:attribute name="final-page" type="xs:boolean"/>
             <xs:attribute name="trace" type="xs:boolean"/>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="init-procedure">
-        <xs:complexType>
-            <xs:choice>
-                <xs:element name="session-clear"/>
-                <xs:element ref="s:server-script"/>
-            </xs:choice>
-            <xs:attribute name="outputPath" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 

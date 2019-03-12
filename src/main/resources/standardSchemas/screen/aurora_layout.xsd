@@ -40,6 +40,7 @@
                     <xs:any namespace="##other"/>
                     <xs:group ref="a:Editors" minOccurs="0"/>
                     <xs:group ref="a:layout" minOccurs="0"/>
+                    <xs:element ref="a:button" minOccurs="0" />
                 </xs:choice>
                 <xs:attribute name="cellPadding" type="xs:int"/>
                 <xs:attribute name="cellSpacing" type="xs:int"/>
