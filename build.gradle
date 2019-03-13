@@ -44,7 +44,6 @@ patchPluginXml {
       1.0.2
       <li>add the schema of bm & svc</li>
       <li>define the Aurora SyntaxHighlighterFactory</li>
-      </ul>
       1.0.3
       <li>add the schema of bm & svc</li>
       <li>define the Aurora SyntaxHighlighterFactory</li>
