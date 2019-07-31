@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description 定义screen文件类型
  * @time 2018/12/21 13:01
  */

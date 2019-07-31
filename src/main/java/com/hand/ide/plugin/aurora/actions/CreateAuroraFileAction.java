@@ -15,7 +15,7 @@ import com.intellij.psi.PsiFile;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description 创建Aurora文件
  * @time 2018/12/21 15:55
  */

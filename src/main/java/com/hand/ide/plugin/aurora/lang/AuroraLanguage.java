@@ -4,7 +4,7 @@ import com.intellij.lang.xml.XMLLanguage;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description 定义Aurora语言类型
  * @time 2018/12/21 12:47
  */

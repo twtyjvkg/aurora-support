@@ -6,7 +6,7 @@ import javax.swing.*;
 
 /**
  * @author xuzhao
- * @mail mailto:xuzhao@feline.net
+ * @mail mailto:support@xuzhao.xin
  * @description icon引用
  * @time 2018/12/21 12:54
  */

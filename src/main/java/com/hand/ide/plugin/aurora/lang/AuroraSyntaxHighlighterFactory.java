@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @Author: xuzhao
- * @Email: mailto:contact@xuzhao.xin
+ * @Email: mailto:xuzhao@zhique.design
  * @Description:
  * @Time: 2018/12/26 9:58
  */

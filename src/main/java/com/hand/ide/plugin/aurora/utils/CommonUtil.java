@@ -2,7 +2,7 @@ package com.hand.ide.plugin.aurora.utils;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description
  * @time 2018/12/24 14:41
  */

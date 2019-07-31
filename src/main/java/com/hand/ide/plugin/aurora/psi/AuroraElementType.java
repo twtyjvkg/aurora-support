@@ -6,7 +6,7 @@ import com.intellij.psi.xml.XmlTokenType;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description
  * @time 2018/12/21 15:11
  */

@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description 定义Aurora文件类型工厂
  * @time 2018/12/21 13:04
  */

@@ -7,7 +7,7 @@ import com.intellij.ide.fileTemplates.FileTemplateGroupDescriptorFactory;
 
 /**
  * @author xuzhao
- * @email mailto:xuzhao@feline.net
+ * @email mailto:support@xuzhao.xin
  * @description
  * @time 2018/12/21 16:01
  */
