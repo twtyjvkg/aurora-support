@@ -84,6 +84,9 @@
             <xs:attribute name="exportDataFormat"/>
             <xs:attribute name="exportDataType"/>
             <xs:attribute name="exportField"/>
+            <xs:attribute name="fullPrompt" type="xs:string" />
+            <xs:attribute name="tooltip" type="xs:string" />
+            <xs:attribute name="tipDisplay" type="xs:boolean" />
             <xs:attribute name="showTitle" default="false" type="xs:boolean"/>
         </xs:complexType>
     </xs:element>
