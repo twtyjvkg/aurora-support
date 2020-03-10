@@ -21,8 +21,11 @@
                <xs:attribute name="autoFocus" default="false" type="xs:boolean"/>
                <xs:attribute name="autoAppend" default="true" type="xs:boolean"/>
                <xs:attribute name="autoAdjust" default="true" type="xs:boolean"/>
+               <xs:attribute name="autoAdjustHeight" default="true" type="xs:boolean"/>
                <xs:attribute name="showRowNumber" type="xs:boolean"/>
                <xs:attribute name="canWheel" type="xs:boolean"/>
+               <xs:attribute name="hideNavBar" default="false" type="xs:boolean"/>
+               <xs:attribute name="showSort" default="false" type="xs:boolean"/>
                <xs:attribute name="canPaste" default="false"/>
                <xs:attribute name="rowRenderer" type="xs:string"/>
                <xs:attribute name="submask" type="xs:boolean"/>
